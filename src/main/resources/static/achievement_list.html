@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>信息列表</title>
+        <meta charset="utf-8">
+        <!-- 引入样式 -->
+        <link rel="stylesheet" href="/css/index.css">
+        <style>
+            .el-table th{
+                text-align: center !important;
+            }
+        </style>
+
+        <!-- 引入js -->
+        <script src="/js/jquery-1.9.1.min.js"></script>
+        <!-- 先引入 Vue -->
+        <script src="/js/vue.min.js"></script>
+        <script src="/js/vue-resource.min.js"></script>
+        <!-- 引入组件库 -->
+        <script src="/js/vue-element.min.js"></script>
+    </head>
+    <body>
+        <div class="grid-content bg-purple-light" id="app">
+            <div class="tv-mb20">
+                <el-table v-loading="tvLoading" :data="tableData" class="tv-table" border stripe style="width: 100%; text-align:center;">
+                    <el-table-column label="编号" min-width="150" show-overflow-tooltip>
+                        <template scope="scope">
+                            {{scope.row.number}}
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="姓名" min-width="150" show-overflow-tooltip>
+                        <template scope="scope">
+                            {{scope.row.name}}
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="科目" min-width="150" show-overflow-tooltip>
+                        <template scope="scope">
+                            {{scope.row.subject}}
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="成绩" min-width="150" show-overflow-tooltip>
+                        <template scope="scope">
+                            {{scope.row.grade}}
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="判定" min-width="150" show-overflow-tooltip>
+                        <template scope="scope">
+                            {{scope.row.isQualified}}
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="操作" min-width="150" show-overflow-tooltip>
+                        <template scope="scope">
+                            <a style="color:blue;" href="javascript:;" @click="modifyAchievement(scope.row.id)">修改</a>
+                        </template>
+                    </el-table-column>
+                </el-table>
+
+                <!--<el-pagination :page-size="pageSize" :page-sizes="[2, 4, 5, 7]" layout="total, sizes, prev, pager, next, jumper" :total="totalCount" class="tv-mt20 tv-page"-->
+                               <!--:current-page.sync="pageNo" @current-change="handleCurrentChange" @size-change="handleSizeChange"></el-pagination>-->
+
+                <el-dialog title="修改Achievement" style="text-align:center;" :visible.sync="dialogTableVisible">
+                    <el-form :model="achievement" ref="achievement" style="width:97%;" label-width="100px" class="demo-ruleForm">
+                        <el-form-item label="编号" prop="number">
+                            <el-input v-model="achievement.number"></el-input>
+                        </el-form-item>
+                        <el-form-item label="姓名" prop="name">
+                            <el-input v-model="achievement.name"></el-input>
+                        </el-form-item>
+                        <el-form-item label="科目" prop="subject">
+                            <el-input v-model="achievement.subject"></el-input>
+                        </el-form-item>
+                        <el-form-item label="成绩" prop="grade">
+                            <el-input v-model="achievement.grade"></el-input>
+                        </el-form-item>
+                        <el-form-item label="判定" prop="isQualified">
+                            <el-input v-model="achievement.isQualified"></el-input>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="primary" @click="submit('achievement')">确定</el-button>
+                            <el-button @click="reset('achievement');dialogTableVisible = false">取消</el-button>
+                        </el-form-item>
+                    </el-form>
+                </el-dialog>
+            </div>
+        </div>
+
+        <script>
+			var Index = new Vue({
+				el: '#app',
+				data:{
+				    tvLoading: true,
+					pageNo:1,
+			        pageSize:5,
+			        totalCount: 0,
+			        currentSwitch: true,
+                    tableData: [],
+
+                    dialogTableVisible: false,
+                    achievement: {
+                        number: '',
+                        name: '',
+                        subject: '',
+                        grade: '',
+                        isQualified: ''
+                    }
+				},
+				methods:{
+				    getTableData: function(pageNo, pageSize){
+				        var _self = this;
+				        _self.tvLoading = true;
+
+				        var url="/achievement/data?pageNo="+(pageNo-1)+"&pageSize="+pageSize;
+				        $.ajax({
+                            url:url,
+                            type:'post',
+                            async:true,
+                            dataType:'json',
+                            success:function(datas){
+                                _self.tableData = datas.content;
+                                _self.totalCount = datas.totalElements;
+                                _self.tvLoading = false;
+                            }
+                        })
+                    },
+                    //当前数
+			        handleCurrentChange:function(val){
+			            var _self = this;
+			          	//防止两次触发
+			            if ( _self.currentSwitch ) {
+			                _self.currentSwitch = false;
+			                var timer = setTimeout(function(){
+			                    _self.currentSwitch = true;
+			                    clearTimeout(timer)
+			                },1);
+
+			              	//同步页码
+			                this.pageNo = val;
+			                this.getTableData(this.pageNo, this.pageSize);
+			            }
+			        },
+			        handleSizeChange:function(val){
+			            //同步每页多少条
+			            this.pageSize = val;
+			            this.getTableData(this.pageNo, this.pageSize);
+                    },
+                    modifyAchievement: function(id){
+                        var _self = this;
+
+                        var url="/achievement/getAchievementById?id="+id;
+				        $.ajax({
+                            url:url,
+                            type:'post',
+                            async:true,
+                            dataType:'json',
+                            success:function(datas){
+                                _self.achievement = datas;
+                                _self.dialogTableVisible = true;
+                            }
+                        })
+                    },
+                    submit: function(forName){
+                        var _self = this;
+
+                        var achievement = _self.achievement;
+
+                        var url="/achievement/saveAchievement";
+				        $.ajax({
+                            url: url,
+                            type: 'post',
+                            async: true,
+                            contentType: 'application/json',
+					        data: JSON.stringify(achievement),
+                            success:function(data){
+                                alert(data);
+                                location.reload();
+                            }
+                        })
+                    },
+                    reset: function(formName) {
+			            this.$refs[formName].resetFields();
+			        }
+				},
+				mounted: function() {
+				    this.getTableData(this.pageNo, this.pageSize);
+				}
+			})
+		</script>
+    </body>
+</html>
