@@ -5,6 +5,12 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringBootCode.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringBootCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringBootCode_main.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringBootCode_main.iml" group="SpringBootCode" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringBootCode_test.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringBootCode_test.iml" group="SpringBootCode" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hibernate.iml" filepath="$PROJECT_DIR$/.idea/modules/hibernate.iml" group="hibernate" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hibernate/hibernate_main.iml" filepath="$PROJECT_DIR$/.idea/modules/hibernate/hibernate_main.iml" group="hibernate" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hibernate/hibernate_test.iml" filepath="$PROJECT_DIR$/.idea/modules/hibernate/hibernate_test.iml" group="hibernate" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/specification.iml" filepath="$PROJECT_DIR$/.idea/modules/specification.iml" group="specification" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/specification/specification_main.iml" filepath="$PROJECT_DIR$/.idea/modules/specification/specification_main.iml" group="specification" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/specification/specification_test.iml" filepath="$PROJECT_DIR$/.idea/modules/specification/specification_test.iml" group="specification" />
     </modules>
   </component>
 </project>

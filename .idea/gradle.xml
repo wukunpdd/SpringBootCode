@@ -10,6 +10,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/hibernate" />
+            <option value="$PROJECT_DIR$/specification" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,2 +1,4 @@
 rootProject.name = 'SpringBootCode'
+include 'hibernate'
+include 'specification'
 

@@ -2,6 +2,10 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="hibernate_main" target="1.8" />
+      <module name="hibernate_test" target="1.8" />
+      <module name="specification_main" target="1.8" />
+      <module name="specification_test" target="1.8" />
       <module name="SpringBootCode_main" target="1.8" />
       <module name="SpringBootCode_test" target="1.8" />
     </bytecodeTargetLevel>
