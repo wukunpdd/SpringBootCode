@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.List;
+
 /**
  * 增改查测试
  * 三种参数的获取方式
@@ -52,5 +55,16 @@ public class AchievementController {
 	@RequestMapping("/getAchievementById")
 	public Achievement getAchievementById(@RequestParam("id") Integer id){
 		return achievementService.getAchievementById(id);
+	}
+
+	/**
+	 * 获取List集合参数
+	 * @param achievementList
+	 */
+	@RequestMapping("/achievementList")
+	public void achievementList(@Valid @RequestBody List<Achievement> achievementList){
+		for(Achievement achievement:achievementList){
+			System.out.println("achievement:"+achievement);
+		}
 	}
 }

@@ -178,10 +178,32 @@
                     },
                     reset: function(formName) {
 			            this.$refs[formName].resetFields();
+			        },
+
+			        //测试List参数
+			        achievementList: function(){
+			            var achievementList = [];
+			            var achievement = {"number": 11, "name": "wukun", "subject": "数学", "grade": 80, "isQualified": 0};
+			            achievementList.push(achievement);
+			            achievement = {"number": 12, "name": "刘卿香", "subject": "语文", "grade": 125, "isQualified": 1};
+			            achievementList.push(achievement);
+
+			            var url="/achievement/achievementList";
+				        $.ajax({
+                            url: url,
+                            type: 'post',
+                            async: true,
+                            contentType: 'application/json',
+					        data: JSON.stringify(achievementList),
+                            success:function(){
+
+                            }
+                        })
 			        }
 				},
 				mounted: function() {
 				    this.getTableData(this.pageNo, this.pageSize);
+				    this.achievementList();
 				}
 			})
 		</script>
