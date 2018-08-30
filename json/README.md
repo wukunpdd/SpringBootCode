@@ -1,11 +1,11 @@
 # 核心知识点
 
 ## 一. jackson
-Spring Boot默认使用的是jackson
+Spring Boot默认使用的是jackson <Br/>
 jackson对null的处理配置代码JacksonConfig
 
 ## 二. fastjson
-如果想使用fastjson替代默认的jackson，仅需增加 compile("com.alibaba:fastjson:1.2.35") 配置代码即可
+如果想使用fastjson替代默认的jackson，仅需增加 compile("com.alibaba:fastjson:1.2.35") 配置代码即可 <Br/>
 fastjson对null的处理配置代码FastJsonConfig
 
 ## 三. 数据封装
