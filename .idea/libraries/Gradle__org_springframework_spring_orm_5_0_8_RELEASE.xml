@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: org.springframework:spring-orm:5.0.8.RELEASE">
     <CLASSES>
-      <root url="jar://D:/Develop/gradle-4.9/caches/modules-2/files-2.1/org.springframework/spring-orm/5.0.8.RELEASE/4da63072d1ed6a2eb4bc0a4c8da5e09f39b5021e/spring-orm-5.0.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-4.9/caches/modules-2/files-2.1/org.springframework/spring-orm/5.0.8.RELEASE/4da63072d1ed6a2eb4bc0a4c8da5e09f39b5021e/spring-orm-5.0.8.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
