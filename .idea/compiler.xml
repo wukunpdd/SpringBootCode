@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="expection_main" target="1.8" />
+      <module name="expection_test" target="1.8" />
       <module name="hibernate_main" target="1.8" />
       <module name="hibernate_test" target="1.8" />
       <module name="json_main" target="1.8" />
