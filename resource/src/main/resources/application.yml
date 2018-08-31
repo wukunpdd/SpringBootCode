@@ -1,0 +1,15 @@
+url:
+  orderUrl: http://localhost:8002
+  userUrl: http://localhost:8003
+  shoppingUrl: http://localhost:8004
+
+logging:
+  config: D:/wukun/workspace/SpringBootCode/resource/src/main/resources/logback.xml
+  level:
+    com.itcodai.course03.dao: trace
+
+# 指定环境
+spring:
+  profiles:
+    active:
+    - dev

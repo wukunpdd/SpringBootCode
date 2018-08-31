@@ -6,6 +6,8 @@
       <module name="hibernate_test" target="1.8" />
       <module name="json_main" target="1.8" />
       <module name="json_test" target="1.8" />
+      <module name="resource_main" target="1.8" />
+      <module name="resource_test" target="1.8" />
       <module name="slf4j_main" target="1.8" />
       <module name="slf4j_test" target="1.8" />
       <module name="specification_main" target="1.8" />
