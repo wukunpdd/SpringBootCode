@@ -69,6 +69,7 @@ public class UserScoreController {
         return new JsonResult<>(userScoreList, "操作是成功的");
     }
 
+
     @RequestMapping("/jsonresult/getMap")
     public JsonResult<Map> getMapByJsonResult(){
         Map<String, Object> map = new HashMap<>();
