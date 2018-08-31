@@ -20,6 +20,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/specification.iml" filepath="$PROJECT_DIR$/.idea/modules/specification.iml" group="specification" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/specification/specification_main.iml" filepath="$PROJECT_DIR$/.idea/modules/specification/specification_main.iml" group="specification" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/specification/specification_test.iml" filepath="$PROJECT_DIR$/.idea/modules/specification/specification_test.iml" group="specification" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swagger2.iml" filepath="$PROJECT_DIR$/.idea/modules/swagger2.iml" group="swagger2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swagger2/swagger2_main.iml" filepath="$PROJECT_DIR$/.idea/modules/swagger2/swagger2_main.iml" group="swagger2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swagger2/swagger2_test.iml" filepath="$PROJECT_DIR$/.idea/modules/swagger2/swagger2_test.iml" group="swagger2" />
     </modules>
   </component>
 </project>

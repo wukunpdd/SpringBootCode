@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/resource" />
             <option value="$PROJECT_DIR$/slf4j" />
             <option value="$PROJECT_DIR$/specification" />
+            <option value="$PROJECT_DIR$/swagger2" />
           </set>
         </option>
       </GradleProjectSettings>

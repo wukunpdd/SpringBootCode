@@ -4,4 +4,5 @@ include 'specification'
 include 'json'
 include 'slf4j'
 include 'resource'
+include 'swagger2'
 
