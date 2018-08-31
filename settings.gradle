@@ -2,4 +2,5 @@ rootProject.name = 'SpringBootCode'
 include 'hibernate'
 include 'specification'
 include 'json'
+include 'slf4j'
 

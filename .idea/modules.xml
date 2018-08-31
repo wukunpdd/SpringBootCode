@@ -11,6 +11,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/json.iml" filepath="$PROJECT_DIR$/.idea/modules/json.iml" group="json" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/json/json_main.iml" filepath="$PROJECT_DIR$/.idea/modules/json/json_main.iml" group="json" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/json/json_test.iml" filepath="$PROJECT_DIR$/.idea/modules/json/json_test.iml" group="json" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/slf4j.iml" filepath="$PROJECT_DIR$/.idea/modules/slf4j.iml" group="slf4j" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/slf4j/slf4j_main.iml" filepath="$PROJECT_DIR$/.idea/modules/slf4j/slf4j_main.iml" group="slf4j" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/slf4j/slf4j_test.iml" filepath="$PROJECT_DIR$/.idea/modules/slf4j/slf4j_test.iml" group="slf4j" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/specification.iml" filepath="$PROJECT_DIR$/.idea/modules/specification.iml" group="specification" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/specification/specification_main.iml" filepath="$PROJECT_DIR$/.idea/modules/specification/specification_main.iml" group="specification" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/specification/specification_test.iml" filepath="$PROJECT_DIR$/.idea/modules/specification/specification_test.iml" group="specification" />
