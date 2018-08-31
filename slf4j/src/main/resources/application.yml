@@ -1,4 +1,4 @@
 logging:
-  config: logback.xml
+  config: D:/wukun/workspace/SpringBootCode/resource/src/main/resources/logback.xml
   level:
     com.itcodai.course03.dao: trace
