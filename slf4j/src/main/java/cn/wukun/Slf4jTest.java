@@ -12,6 +12,7 @@ public class Slf4jTest {
 
     public static void main(String[] args){
         logger.debug("=====测试日志debug级别打印====");
+
         logger.info("======测试日志info级别打印=====");
         logger.error("=====测试日志error级别打印====");
         logger.warn("======测试日志warn级别打印=====");
