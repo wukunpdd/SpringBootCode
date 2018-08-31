@@ -24,7 +24,7 @@ public class UserScore implements IEntity{
     @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "user_score")
+    @Column(name = "user_mobile")
     private String userMobile;
 
     @Column(name = "score_value")
