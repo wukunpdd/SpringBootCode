@@ -1,6 +1,8 @@
 package cn.wukun.web;
 
 import cn.wukun.domain.User;
+import cn.wukun.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +17,9 @@ import java.net.URLEncoder;
 @RestController
 @RequestMapping("/listener")
 public class TestController {
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/user")
     public User getUser(HttpServletRequest request) {
@@ -59,6 +64,12 @@ public class TestController {
     @GetMapping("/request")
     public String getRequestInfo(HttpServletRequest request) {
         System.out.println("requestListener中的初始化的name数据：" + request.getAttribute("name"));
+        return "success";
+    }
+
+    @GetMapping("/request2")
+    public String getRequestInfo2(HttpServletRequest request) {
+        userService.getUser2();
         return "success";
     }
 }
