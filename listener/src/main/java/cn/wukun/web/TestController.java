@@ -55,4 +55,10 @@ public class TestController {
         Integer count = (Integer) request.getSession().getServletContext().getAttribute("count");
         return "当前在线人数：" + count;
     }
+
+    @GetMapping("/request")
+    public String getRequestInfo(HttpServletRequest request) {
+        System.out.println("requestListener中的初始化的name数据：" + request.getAttribute("name"));
+        return "success";
+    }
 }
