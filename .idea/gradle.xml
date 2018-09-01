@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/expection" />
             <option value="$PROJECT_DIR$/hibernate" />
             <option value="$PROJECT_DIR$/json" />
+            <option value="$PROJECT_DIR$/listener" />
             <option value="$PROJECT_DIR$/mybatis" />
             <option value="$PROJECT_DIR$/resource" />
             <option value="$PROJECT_DIR$/slf4j" />
