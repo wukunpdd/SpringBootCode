@@ -49,3 +49,12 @@ UserScore getUserScoreByUserId(@Param("userId") Integer userId);
 ## 五. Mapper的启用
 1. 在对应Mapper接口上面使用@Mapper注解
 2. 在启动类上加上@MapperScan注解，并配置接口的所在包地址
+
+## 六. 事务常见错误
+### 6.1 异常并没有被“捕获”到
+Spring Boot 默认的事务规则是遇到运行异常（RuntimeException）和程序错误（Error）才会回滚。比如抛出的 RuntimeException，可完成回滚，而抛出 SQLException，则无法回滚。针对非检测异常，如果要进行事务回滚，可以在 @Transactional 注解中使用 rollbackFor 属性指定异常，比如 @Transactional(rollbackFor = Exception.class)，这样就没有问题了。
+
+### 6.2 异常被“吃”掉
+针对这种情况只需要保证不在事务中使用try catch即可
+
+### 6.3 事务范围
