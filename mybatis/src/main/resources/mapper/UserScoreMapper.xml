@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wukun.dao.UserScoreMapper">
+    <resultMap id="BaseResultMap" type="cn.wukun.domain.UserScore">
+
+        <id column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="user_mobile" jdbcType="VARCHAR" property="userMobile" />
+        <result column="score_value" jdbcType="INTEGER" property="scoreValue" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    </resultMap>
+
+    <select id="getUserScoreByUserName" resultType="UserScore" parameterType="String">
+        select * from user_score where user_name = #{userName}
+    </select>
+</mapper>

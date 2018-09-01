@@ -17,6 +17,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/json.iml" filepath="$PROJECT_DIR$/.idea/modules/json.iml" group="json" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/json/json_main.iml" filepath="$PROJECT_DIR$/.idea/modules/json/json_main.iml" group="json" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/json/json_test.iml" filepath="$PROJECT_DIR$/.idea/modules/json/json_test.iml" group="json" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mybatis.iml" filepath="$PROJECT_DIR$/.idea/modules/mybatis.iml" group="mybatis" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mybatis/mybatis_main.iml" filepath="$PROJECT_DIR$/.idea/modules/mybatis/mybatis_main.iml" group="mybatis" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mybatis/mybatis_test.iml" filepath="$PROJECT_DIR$/.idea/modules/mybatis/mybatis_test.iml" group="mybatis" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/resource.iml" filepath="$PROJECT_DIR$/.idea/modules/resource.iml" group="resource" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/resource/resource_main.iml" filepath="$PROJECT_DIR$/.idea/modules/resource/resource_main.iml" group="resource" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/resource/resource_test.iml" filepath="$PROJECT_DIR$/.idea/modules/resource/resource_test.iml" group="resource" />

@@ -7,4 +7,5 @@ include 'resource'
 include 'swagger2'
 include 'expection'
 include 'aop'
+include 'mybatis'
 
