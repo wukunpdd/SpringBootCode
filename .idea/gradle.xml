@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/aop" />
             <option value="$PROJECT_DIR$/expection" />
             <option value="$PROJECT_DIR$/hibernate" />
+            <option value="$PROJECT_DIR$/interceptor" />
             <option value="$PROJECT_DIR$/json" />
             <option value="$PROJECT_DIR$/listener" />
             <option value="$PROJECT_DIR$/mybatis" />

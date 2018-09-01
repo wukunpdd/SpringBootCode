@@ -8,6 +8,8 @@
       <module name="expection_test" target="1.8" />
       <module name="hibernate_main" target="1.8" />
       <module name="hibernate_test" target="1.8" />
+      <module name="interceptor_main" target="1.8" />
+      <module name="interceptor_test" target="1.8" />
       <module name="json_main" target="1.8" />
       <module name="json_test" target="1.8" />
       <module name="listener_main" target="1.8" />
