@@ -2,6 +2,7 @@
   <library name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.6">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../gradle-4.9/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.9.6/ea54f6193d224e5e5732bbd4262327eb465397c2/jackson-datatype-jsr310-2.9.6.jar!/" />
+      <root url="jar://D:/Develop/gradle-4.9/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.9.6/ea54f6193d224e5e5732bbd4262327eb465397c2/jackson-datatype-jsr310-2.9.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

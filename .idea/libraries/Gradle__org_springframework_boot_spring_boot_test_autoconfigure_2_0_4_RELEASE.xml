@@ -2,6 +2,7 @@
   <library name="Gradle: org.springframework.boot:spring-boot-test-autoconfigure:2.0.4.RELEASE">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../gradle-4.9/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test-autoconfigure/2.0.4.RELEASE/8a2e3f31e607fdb08deda2f59263ce177f1c4310/spring-boot-test-autoconfigure-2.0.4.RELEASE.jar!/" />
+      <root url="jar://D:/Develop/gradle-4.9/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test-autoconfigure/2.0.4.RELEASE/8a2e3f31e607fdb08deda2f59263ce177f1c4310/spring-boot-test-autoconfigure-2.0.4.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

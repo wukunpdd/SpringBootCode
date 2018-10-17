@@ -2,6 +2,7 @@
   <library name="Gradle: org.springframework:spring-tx:5.0.8.RELEASE">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../gradle-4.9/caches/modules-2/files-2.1/org.springframework/spring-tx/5.0.8.RELEASE/b6488db6192f71bd682a13b9d42127307631c616/spring-tx-5.0.8.RELEASE.jar!/" />
+      <root url="jar://D:/Develop/gradle-4.9/caches/modules-2/files-2.1/org.springframework/spring-tx/5.0.8.RELEASE/b6488db6192f71bd682a13b9d42127307631c616/spring-tx-5.0.8.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

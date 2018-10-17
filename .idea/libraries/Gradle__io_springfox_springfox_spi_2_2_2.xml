@@ -2,6 +2,7 @@
   <library name="Gradle: io.springfox:springfox-spi:2.2.2">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../gradle-4.9/caches/modules-2/files-2.1/io.springfox/springfox-spi/2.2.2/6a2fcbb940c3820102e1d84f78099ff69a5171f3/springfox-spi-2.2.2.jar!/" />
+      <root url="jar://D:/Develop/gradle-4.9/caches/modules-2/files-2.1/io.springfox/springfox-spi/2.2.2/6a2fcbb940c3820102e1d84f78099ff69a5171f3/springfox-spi-2.2.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -2,6 +2,7 @@
   <library name="Gradle: io.springfox:springfox-swagger-common:2.2.2">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../gradle-4.9/caches/modules-2/files-2.1/io.springfox/springfox-swagger-common/2.2.2/66af002c114b8b7c898325f4334497ddf2ff63d6/springfox-swagger-common-2.2.2.jar!/" />
+      <root url="jar://D:/Develop/gradle-4.9/caches/modules-2/files-2.1/io.springfox/springfox-swagger-common/2.2.2/66af002c114b8b7c898325f4334497ddf2ff63d6/springfox-swagger-common-2.2.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -2,6 +2,7 @@
   <library name="Gradle: io.swagger:swagger-annotations:1.5.3">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../gradle-4.9/caches/modules-2/files-2.1/io.swagger/swagger-annotations/1.5.3/607d9721d7a0796bd79a58ceda61cb370115227/swagger-annotations-1.5.3.jar!/" />
+      <root url="jar://D:/Develop/gradle-4.9/caches/modules-2/files-2.1/io.swagger/swagger-annotations/1.5.3/607d9721d7a0796bd79a58ceda61cb370115227/swagger-annotations-1.5.3.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
