@@ -6,6 +6,8 @@
       <module name="aop_test" target="1.8" />
       <module name="expection_main" target="1.8" />
       <module name="expection_test" target="1.8" />
+      <module name="freemarker_main" target="1.8" />
+      <module name="freemarker_test" target="1.8" />
       <module name="hibernate_main" target="1.8" />
       <module name="hibernate_test" target="1.8" />
       <module name="interceptor_main" target="1.8" />

@@ -10,4 +10,5 @@ include 'aop'
 include 'mybatis'
 include 'listener'
 include 'interceptor'
+include 'freemarker'
 
