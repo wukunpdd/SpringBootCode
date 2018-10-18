@@ -26,8 +26,7 @@ public class GenerateController {
         GeneratingEntity entityGenerating=new GeneratingEntity();
 
         for(int i=0;i<sList.size();i++){
-            entityGenerating.generatingHibernateDomain(applicationInfo, sList.get(i));
-            entityGenerating.generatingHibernateDao(applicationInfo, sList.get(i));
+            entityGenerating.generateHibernateWeb(applicationInfo, sList.get(i));
         }
 
         return "生成实体类成功";

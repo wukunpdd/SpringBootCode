@@ -25,7 +25,7 @@ public class GeneratingEntity {
      * @param tableName
      * @throws Exception
      */
-    public void generatingHibernateDomain(ApplicationInfo applicationInfo, String tableName) throws Exception{
+    public void generateHibernateDomain(ApplicationInfo applicationInfo, String tableName) throws Exception{
         generate(applicationInfo, tableName, "hibernate-domain");
     }
 
@@ -35,8 +35,38 @@ public class GeneratingEntity {
      * @param tableName
      * @throws Exception
      */
-    public void generatingHibernateDao(ApplicationInfo applicationInfo, String tableName) throws Exception{
+    public void generateHibernateDao(ApplicationInfo applicationInfo, String tableName) throws Exception{
         generate(applicationInfo, tableName, "hibernate-dao");
+    }
+
+    /**
+     * Hibernate的Service层代码生成
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generateHibernateService(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "hibernate-service");
+    }
+
+    /**
+     * Hibernate的Service实现层代码生成
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generateHibernateServiceImpl(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "hibernate-service-impl");
+    }
+
+    /**
+     * Hibernate的web层代码生成
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generateHibernateWeb(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "hibernate-web");
     }
 
     public static void generate(ApplicationInfo applicationInfo, String tableName, String type) throws Exception{
@@ -62,7 +92,7 @@ public class GeneratingEntity {
             beanPath += "/domain";
         }else if(type.indexOf("dao") != -1){
             beanPath += "/dao";
-        }else if(type.indexOf("service") != -1 && type.indexOf("service-impl") == 0){
+        }else if(type.indexOf("service") != -1 && type.indexOf("service-impl") == -1){
             beanPath += "/service";
         }else if(type.indexOf("service-impl") != -1){
             beanPath += "/service/impl";
@@ -117,10 +147,10 @@ public class GeneratingEntity {
             filePathOfBean += ".java";
         }else if(type.indexOf("dao") != -1){
             filePathOfBean += "Dao.java";
-        }else if(type.indexOf("service") != -1 && type.indexOf("service-impl") == 0){
+        }else if(type.indexOf("service") != -1 && type.indexOf("service-impl") == -1){
             filePathOfBean += "Service.java";
         }else if(type.indexOf("service-impl") != -1){
-            filePathOfBean += "ServiceImpl";
+            filePathOfBean += "ServiceImpl.java";
         }else if(type.indexOf("web") != -1){
             filePathOfBean += "Controller.java";
         }
