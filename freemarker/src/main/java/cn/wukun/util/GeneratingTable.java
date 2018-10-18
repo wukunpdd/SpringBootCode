@@ -48,6 +48,7 @@ public class GeneratingTable {
 			
 			table.setCname(metaData.getColumnName(i + 1));
 			table.setName(handleUnderline(metaData.getColumnName(i + 1)));
+			table.setCheckName(toUpperCaseFirstOne(handleUnderline(metaData.getColumnName(i + 1))));
 			table.setLength(metaData.getColumnDisplaySize(i + 1)+"");
 			table.setType(metaData.getColumnTypeName(i + 1));
 			

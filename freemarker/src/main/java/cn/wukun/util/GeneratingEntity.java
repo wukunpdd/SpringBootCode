@@ -15,32 +15,78 @@ import freemarker.template.Version;
  */
 public class GeneratingEntity {
 
-    private List<Table> tableList;
-
     private static Configuration configuration;
     private static Template template;
     private static Writer writer;
 
-    //生成实体类的方法
-    public void generatingEntity(
-            String driverClass,String dbUrl,String username,String password,String tableName,String generatingAddress,String packageName) throws Exception{
+    /**
+     * Hibernate的实体类生成
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generatingHibernateDomain(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "hibernate-domain");
+    }
+
+    /**
+     * Hibernate的Dao层代码生成
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generatingHibernateDao(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "hibernate-dao");
+    }
+
+    public static void generate(ApplicationInfo applicationInfo, String tableName, String type) throws Exception{
+        //模板名称和包名的确立
+        String tempalteName = type + ".ftl";
+        String packageName = applicationInfo.getPackageName() + ".hibernate";
+        if(type.indexOf("mybatis") != -1){
+            packageName = applicationInfo.getPackageName() + ".mybatis";
+        }
+
+        //实体类存放地址确定
+        String beanPath = applicationInfo.getGeneratingAddress()+"/"+applicationInfo.getPackageName();
+        if(applicationInfo.getPackageName().indexOf(".") != -1){
+            String[] names = applicationInfo.getPackageName().split("\\.");
+            beanPath = applicationInfo.getGeneratingAddress();
+            for(String name:names){
+                beanPath += "/" + name;
+            }
+            beanPath += "/hibernate";
+        }
+
+        if(type.indexOf("domain") != -1){
+            beanPath += "/domain";
+        }else if(type.indexOf("dao") != -1){
+            beanPath += "/dao";
+        }else if(type.indexOf("service") != -1 && type.indexOf("service-impl") == 0){
+            beanPath += "/service";
+        }else if(type.indexOf("service-impl") != -1){
+            beanPath += "/service/impl";
+        }else if(type.indexOf("web") != -1){
+            beanPath += "/web";
+        }
+
         //获取表格的相关信息
         GeneratingTable generatingTable = new GeneratingTable();
 
-        Version incompatibleImprovements=new Version("2.3.21");
+        Version incompatibleImprovements = new Version("2.3.21");
         configuration = new Configuration(incompatibleImprovements);
-        configuration.setDirectoryForTemplateLoading(new File("D:/github/my-freemarker/src/main/resources/templates"));
+        configuration.setDirectoryForTemplateLoading(new File(applicationInfo.getTemplateAddress()));
 
-        template = configuration.getTemplate("entity.ftl");
+        template = configuration.getTemplate(tempalteName);
 
-        generatingTable.initConnection(driverClass,dbUrl,username,password);
+        generatingTable.initConnection(applicationInfo.getDriverClass(), applicationInfo.getDbUrl(), applicationInfo.getUsername(), applicationInfo.getPassword());
         ResultSetMetaData resultSetMetaData=generatingTable.getMetaDataFromTable(tableName);
-        tableList=generatingTable.displayMetaData(resultSetMetaData);
+        List<Table> tableList=generatingTable.displayMetaData(resultSetMetaData);
 
         Map<String,Object> root=new HashMap<String,Object>();
         root.put("class",tableList.get(0).getName());
         root.put("tableName",tableList.get(0).getCname());
-        root.put("package",packageName);
+        root.put("package", packageName);
         Collection<Map<String, String>> properties = new HashSet<Map<String, String>>();
         root.put("properties",properties);
 
@@ -56,75 +102,34 @@ public class GeneratingEntity {
             currency.put("cname",tableList.get(i).getCname());
             currency.put("length",tableList.get(i).getLength());
             currency.put("type",generatingTable.handleField(tableList.get(i).getType()));
+            currency.put("checkName", tableList.get(i).getCheckName());
             properties.add(currency);
         }
 
-        String beanPath = generatingAddress+"/"+packageName+"/entity";
         File filePath = new File(beanPath);
         if (!filePath.exists()) {
             filePath.mkdirs();
         }
 
-        String filePathOfBean = beanPath + "/"+tableList.get(0).getName()+".java";
+        //实体类名称确定
+        String filePathOfBean = beanPath + "/"+tableList.get(0).getName();
+        if(type.indexOf("domain") != -1){
+            filePathOfBean += ".java";
+        }else if(type.indexOf("dao") != -1){
+            filePathOfBean += "Dao.java";
+        }else if(type.indexOf("service") != -1 && type.indexOf("service-impl") == 0){
+            filePathOfBean += "Service.java";
+        }else if(type.indexOf("service-impl") != -1){
+            filePathOfBean += "ServiceImpl";
+        }else if(type.indexOf("web") != -1){
+            filePathOfBean += "Controller.java";
+        }
+
         File file = new File(filePathOfBean);
         if (!file.exists()) {
             file.createNewFile();
         }
 
-        // 显示生成的数据
-        writer = new FileWriter(file);
-        template.process(root, writer);
-        writer.flush();
-        writer.close();
-    }
-
-    //生成dao层格式化代码，都是继承的JpaRepository
-    public void generatingDao(
-            String driverClass,String dbUrl,String username,String password,String tableName,String generatingAddress,String packageName) throws Exception{
-        //获取表格的相关信息
-        GeneratingTable generatingTable = new GeneratingTable();
-
-        Version incompatibleImprovements = new Version("2.3.21");
-        configuration = new Configuration(incompatibleImprovements);
-        configuration.setDirectoryForTemplateLoading(new File("D:/github/my-freemarker/src/main/resources/templates"));
-
-        template = configuration.getTemplate("dao.ftl");
-
-        generatingTable.initConnection(driverClass,dbUrl,username,password);
-        ResultSetMetaData resultSetMetaData=generatingTable.getMetaDataFromTable(tableName);
-        tableList=generatingTable.displayMetaData(resultSetMetaData);
-
-        Map<String,Object> root=new HashMap<String,Object>();
-        root.put("class",tableList.get(0).getName());
-        root.put("package",packageName);
-        Collection<Map<String, String>> properties = new HashSet<Map<String, String>>();
-        root.put("properties",properties);
-
-        for(int i=1;i<tableList.size();i++){
-            Map<String, String> currency = new HashMap<String, String>();
-            //主键 因为主键往往是第一个属性
-            if(i==1){
-                currency.put("flag","1");
-            }else{
-                currency.put("flag","0");
-            }
-            currency.put("type",generatingTable.handleField(tableList.get(i).getType()));
-            properties.add(currency);
-        }
-
-        String beanPath = generatingAddress+"/"+packageName+"/dao";
-        File filePath = new File(beanPath);
-        if (!filePath.exists()) {
-            filePath.mkdirs();
-        }
-
-        String filePathOfBean = beanPath + "/"+tableList.get(0).getName()+"Dao.java";
-        File file = new File(filePathOfBean);
-        if (!file.exists()) {
-            file.createNewFile();
-        }
-
-        // 显示生成的数据
         writer = new FileWriter(file);
         template.process(root, writer);
         writer.flush();

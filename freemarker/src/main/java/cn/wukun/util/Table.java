@@ -6,6 +6,9 @@ public class Table {
 	
 	//表名或者字段名在数据库中的名字
 	private String cname;
+
+	//表名或者字段名首字母大写
+	private String checkName;
 	
 	//字段长度
 	private String length;
@@ -30,6 +33,14 @@ public class Table {
 
 	public void setCname(String cname) {
 		this.cname = cname;
+	}
+
+	public String getCheckName() {
+		return checkName;
+	}
+
+	public void setCheckName(String checkName) {
+		this.checkName = checkName;
 	}
 
 	public String getLength() {

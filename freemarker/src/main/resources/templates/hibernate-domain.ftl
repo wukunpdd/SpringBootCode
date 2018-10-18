@@ -1,4 +1,4 @@
-package ${package}.entity;
+package ${package}.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,18 +17,22 @@ public class ${class} implements IEntity<${prop.type}>{
 	private static final long serialVersionUID = 1L;
 	 
   <#list properties as prop>
-  	<#if prop.flag=="1">
+  <#if prop.flag=="1">
   	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="${prop.cname}",length=${prop.length})  
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "${prop.cname}",length = ${prop.length})
     private ${prop.type} ${prop.name};
-    <#else>
-    @Column(name="${prop.cname}",length=${prop.length})  
+
+  </#if>
+  </#list>
+  <#list properties as prop>
+  <#if prop.flag=="0">
+    @Column(name = "${prop.cname}",length = ${prop.length})
     private ${prop.type} ${prop.name};
-    </#if>
-      
-  </#list>  
-  <#list properties as prop>  
+
+  </#if>
+  </#list>
+  <#list properties as prop>
     public ${prop.type} get${prop.name?cap_first}(){  
       return ${prop.name};  
     }
@@ -36,6 +40,6 @@ public class ${class} implements IEntity<${prop.type}>{
     public void set${prop.name?cap_first}(${prop.type} ${prop.name}){  
       this.${prop.name} = ${prop.name};  
     }
-      
+
   </#list>   
 }
