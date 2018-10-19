@@ -12,7 +12,7 @@ import ${package}.domain.${class};
 import ${package}.service.${class}Service;
 
 @RestController
-@RequestMapping("/${classLower}")
+@RequestMapping("/hibernate/${classLower}")
 public class ${class}Controller{
 
     @Autowired

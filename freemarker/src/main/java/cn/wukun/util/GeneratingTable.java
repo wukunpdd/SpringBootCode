@@ -50,6 +50,7 @@ public class GeneratingTable {
 			table.setName(handleUnderline(metaData.getColumnName(i + 1)));
 			table.setCheckName(toUpperCaseFirstOne(handleUnderline(metaData.getColumnName(i + 1))));
 			table.setLength(metaData.getColumnDisplaySize(i + 1)+"");
+			table.setJdbcType(metaData.getColumnTypeName(i + 1));
 			table.setType(metaData.getColumnTypeName(i + 1));
 			
 			tableList.add(table);
@@ -114,6 +115,16 @@ public class GeneratingTable {
 		}
 		
 		return t;
+	}
+
+	public String getJdbcType(String type){
+		String result = type;
+		if(type.equals("INT")){
+			result = "INTEGER";
+		}else if(type.equals("DATETIME")){
+			result = "TIMESTAMP";
+		}
+		return result;
 	}
 
 }

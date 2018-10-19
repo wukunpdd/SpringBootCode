@@ -1,0 +1,7 @@
+mybatis:
+  # 指定别名设置的包为所有entity
+  type-aliases-package: cn.wukun.mybatis.domain
+  configuration:
+    map-underscore-to-camel-case: true # 驼峰命名规范
+  mapper-locations: # mapper映射文件位置
+    - classpath:mapper/*.xml

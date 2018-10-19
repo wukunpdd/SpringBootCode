@@ -69,6 +69,66 @@ public class GeneratingEntity {
         generate(applicationInfo, tableName, "hibernate-web");
     }
 
+    /**
+     * MyBatis的实体类生成
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generateMyBatisDomain(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "mybatis-domain");
+    }
+
+    /**
+     * MyBatis的*Mapper.xml文件生成
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generateMyBatisMapper(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "mybatis-mapper");
+    }
+
+    /**
+     * MyBatis的Dao层文件生成
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generateMyBatisDao(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "mybatis-dao");
+    }
+
+    /**
+     * MyBatis的Service层接口
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generateMyBatisService(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "mybatis-service");
+    }
+
+    /**
+     * MyBatis的Service层接口实现
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generateMyBatisServiceImpl(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "mybatis-service-impl");
+    }
+
+    /**
+     * MyBatis的Web层
+     * @param applicationInfo
+     * @param tableName
+     * @throws Exception
+     */
+    public void generateMyBatisWeb(ApplicationInfo applicationInfo, String tableName) throws Exception{
+        generate(applicationInfo, tableName, "mybatis-web");
+    }
+
     public static void generate(ApplicationInfo applicationInfo, String tableName, String type) throws Exception{
         //模板名称和包名的确立
         String tempalteName = type + ".ftl";
@@ -85,10 +145,15 @@ public class GeneratingEntity {
             for(String name:names){
                 beanPath += "/" + name;
             }
+        }
+
+        if(type.indexOf("mybatis") != -1){
+            beanPath += "/mybatis";
+        }else if(type.indexOf("hibernate") != -1){
             beanPath += "/hibernate";
         }
 
-        if(type.indexOf("domain") != -1){
+        if(type.indexOf("domain") != -1 || type.indexOf("mapper") != -1){
             beanPath += "/domain";
         }else if(type.indexOf("dao") != -1){
             beanPath += "/dao";
@@ -132,6 +197,7 @@ public class GeneratingEntity {
             currency.put("cname",tableList.get(i).getCname());
             currency.put("length",tableList.get(i).getLength());
             currency.put("type",generatingTable.handleField(tableList.get(i).getType()));
+            currency.put("jdbcType", generatingTable.getJdbcType(tableList.get(i).getJdbcType()));
             currency.put("checkName", tableList.get(i).getCheckName());
             properties.add(currency);
         }
@@ -146,13 +212,19 @@ public class GeneratingEntity {
         if(type.indexOf("domain") != -1){
             filePathOfBean += ".java";
         }else if(type.indexOf("dao") != -1){
-            filePathOfBean += "Dao.java";
+            if(type.indexOf("hibernate") != -1){
+                filePathOfBean += "Dao.java";
+            }else if(type.indexOf("mybatis") != -1){
+                filePathOfBean += "Mapper.java";
+            }
         }else if(type.indexOf("service") != -1 && type.indexOf("service-impl") == -1){
             filePathOfBean += "Service.java";
         }else if(type.indexOf("service-impl") != -1){
             filePathOfBean += "ServiceImpl.java";
         }else if(type.indexOf("web") != -1){
             filePathOfBean += "Controller.java";
+        }else if(type.indexOf("mapper") != -1){
+            filePathOfBean += "Mapper.xml";
         }
 
         File file = new File(filePathOfBean);
